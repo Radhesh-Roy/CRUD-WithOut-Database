@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WithOutDb.Models.Student>
+@{
+    
+}
+<a asp-action="CreateOrEdit" asp-controller="Student" class="btn btn-primary my-2">Add Student</a>
+<table class="table table-bordered table-responsive">
+
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Roll</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Semister</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Roll</td>
+                <td>@item.Name</td>
+                <td>@item.Department</td>
+                <td>@item.Semister</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-action="CreateOrEdit" asp-controller="Student" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a class="btn btn-info">Details</a>
+                    <a class="btn btn-danger">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
